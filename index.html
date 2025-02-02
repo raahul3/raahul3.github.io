@@ -3,52 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raahul's Personal Website</title>
+    <title>Raahul's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #fff;
-            text-align: center;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .container {
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.8);
+            padding: 20px 0;
+            z-index: 100;
+            text-align: center;
+        }
+
+        header nav {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #1DB954;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 50%, #121212 50%);
+            color: #fff;
+            padding: 0 20px;
+            position: relative;
         }
-        h1 {
-            font-size: 3em;
-            margin: 10px 0;
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
-        p {
-            font-size: 1.2em;
-            max-width: 600px;
-            line-height: 1.5;
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin: 0 auto;
         }
+
         .btn {
             background-color: #1DB954;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 30px;
             text-decoration: none;
             font-size: 1.2em;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: inline-block;
+            border-radius: 30px;
+            transition: all 0.3s ease;
         }
+
         .btn:hover {
             background-color: #17a747;
+            transform: translateY(-2px);
+        }
+
+        .about, .qualities, .quote, .contact {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #1a1a1a;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about h2, .qualities h2, .quote h2, .contact h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .about p, .qualities p, .quote p, .contact p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .qualities p {
+            text-align: left;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 2rem;
+            margin: 0 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #1DB954;
+        }
+
+        footer {
+            background-color: #121212;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+        }
+
+        /* Smooth scroll styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hey, I'm Raahul!</h1>
-        <p>Welcome to my personal website. I'm an aspiring entrepreneur and leader, interested in business, technology, and innovation.</p>
-        <a href="https://www.instagram.com/_raahul_sg/?next=%2F" class="btn" target="_blank">Connect with Me on Instagram</a>
-    </div>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#qualities">Qualities</a>
+            <a href="#quote">Quote</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div>
+            <h1><strong>Raahul</strong></h1>
+            <p>Welcome to my personal portfolio. I'm an aspiring entrepreneur, passionate about technology, innovation, and making a difference.</p>
+            <a href="https://www.instagram.com/_raahul_sg/?next=%2F" class="btn" target="_blank">Connect with Me</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>I am driven by a desire to build impactful businesses and leverage cutting-edge technology. With a focus on innovation, I continuously seek opportunities to improve, learn, and create. Whether it's entrepreneurship, leadership, or technology, I aim to make a lasting impact on the world around me.</p>
+    </section>
+
+    <section class="qualities" id="qualities">
+        <h2>Good Things About Me</h2>
+        <p><strong>Entrepreneurial Vision:</strong> I'm passionate about starting businesses that can make a real difference.<br>
+        <strong>Leadership Ambitions:</strong> I aspire to lead and inspire others to pursue greatness.<br>
+        <strong>Tech-Savvy:</strong> I embrace innovation and leverage AI, ML, and other technologies to solve real-world problems.<br>
+        <strong>Continuous Learner:</strong> I strive to grow and develop new skills every day.<br>
+        <strong>Personable & Approachable:</strong> My humor and approachability help me build lasting connections with people.<br>
+        <strong>Strategic Thinker:</strong> I always look for new ways to approach challenges and create effective solutions.
+        </p>
+    </section>
+
+    <section class="quote" id="quote">
+        <h2>Inspirational Quote</h2>
+        <p>"The future belongs to those who believe in the beauty of their dreams." – <strong>Eleanor Roosevelt</strong></p>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Contact Me</h2>
+        <p>If you'd like to connect, feel free to reach out via Instagram or email. Let's collaborate and make something incredible happen!</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/_raahul_sg/?next=%2F" target="_blank">Instagram</a>
+            <a href="mailto:raahulsg3@gmail.com">Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Raahul. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling effect (for anchor links)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
