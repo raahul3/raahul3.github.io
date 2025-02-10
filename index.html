@@ -1,176 +1,585 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAAHUL S G - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            overflow-x: hidden;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            padding: 15px 0;
-            text-align: center;
-            z-index: 1000;
-        }
-
-        header nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        header nav a:hover {
-            color: #ff4d4d;
-        }
-
-        section {
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #000, #444);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            background-color: #ff4d4d;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            margin: 5px;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background-color: #e63946;
-            transform: scale(1.05);
-        }
-
-        .about, .achievements, .goals, .contact {
-            background-color: #fff;
-        }
-
-        h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        footer {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAAHUL S G - Resume</title>
+  <!-- Using Red Hat Display for a modern, bold look -->
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Color Variables for Red–Black Theme */
+    :root {
+      --bg: #0a0a0a;                /* Deep black background */
+      --header-bg: #0a0a0a;          /* Same as background */
+      --text-color: #f0f0f0;         /* Light text */
+      --accent: #F02F34;            /* Striking red accent */
+      --card-bg: #161616;           /* Dark grey for cards */
+      --gradient: linear-gradient(135deg, var(--accent), var(--accent));
+      --shadow: rgba(240,47,52,0.3);
+    }
+    
+    /* Global Reset & Typography */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Red Hat Display', sans-serif;
+      background: var(--bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    /* Force headings & navigation links uppercase */
+    h1, h2, h3, nav a { text-transform: uppercase; }
+    
+    /* Header */
+    header {
+      background: var(--header-bg);
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    header nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    header nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding: 5px 0;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+    header nav a:hover::after { width: 100%; }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--bg), #1a1a1a);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(240,47,52,0.03) 10px,
+        rgba(240,47,52,0.03) 20px
+      );
+      animation: rotateBg 30s linear infinite;
+      z-index: 0;
+    }
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin-bottom: 30px;
+      /* Updated tagline: only one line */
+      content: "HELP EACH OTHER TO GROW TOGETHER";
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+    /* Alternatively, simply use the inner text for the tagline */
+    .hero p { 
+      font-size: 1.5rem; 
+      max-width: 800px; 
+      margin-bottom: 30px; 
+      animation: fadeInUp 1s ease-out 0.3s backwards; 
+    }
+    /* Updated tagline text in HTML (see below) */
+    
+    .btn {
+      background: var(--gradient);
+      color: var(--bg);
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: none; /* Removed hover effects */
+      text-decoration: none;
+      animation: fadeInUp 1s ease-out 0.6s backwards;
+    }
+    
+    /* Remove hover scaling on button */
+    .btn:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Section Common Styles */
+    section {
+      padding: 120px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    section.visible { opacity: 1; transform: translateY(0); }
+    section h2 {
+      font-size: 3.2rem;
+      margin-bottom: 60px;
+      text-align: center;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient);
+    }
+    section p { font-size: 1.1rem; margin-bottom: 20px; text-align: center; }
+    
+    /* About Section */
+    .about {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(45deg, transparent 48%, var(--gradient) 49%, var(--gradient) 51%, transparent 52%);
+      opacity: 0.05;
+    }
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      position: relative;
+    }
+    .about-container > div {
+      flex: 1 1 300px;
+      animation: slideIn 0.6s ease-out backwards;
+    }
+    .about h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .about p, .about ul { font-size: 1.1rem; line-height: 1.8; text-align: left; }
+    .about ul { list-style: none; }
+    .about ul li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    .about ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Project Section */
+    .project {
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .project::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--gradient) 0%, transparent 70%);
+      opacity: 0.05;
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .project strong { color: var(--accent); }
+    .project p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; text-align: left; }
+    
+    /* Certifications Section */
+    .certs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .cert-card {
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text-color);
+      text-align: left;
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .cert-card:hover::before { opacity: 0.1; }
+    .cert-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(240,47,52,0.2);
+    }
+    .cert-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--text-color);
+      position: relative;
+    }
+    .cert-card p { font-size: 1.1rem; opacity: 0.9; position: relative; }
+    
+    /* Connect Section */
+    .connect {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 40px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .connect a {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 15px;
+      width: 150px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .connect a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .connect a:hover::before { opacity: 0.1; }
+    .connect a:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(240,47,52,0.2);
+    }
+    .connect a i {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+    .connect a span { font-size: 1.1rem; font-weight: 500; position: relative; }
+    
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      padding: 30px;
+      text-align: center;
+      color: #aaa;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gradient);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 4rem; }
+      .hero p { font-size: 1.2rem; }
+      header nav a { font-size: 1em; }
+      .about-container { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#goals">Goals</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT ME</a>
+      <a href="#project">PROJECT</a>
+      <a href="#certifications">CERTIFICATIONS</a>
+      <a href="#connect">CONNECT</a>
+    </nav>
+  </header>
 
-    <section class="hero" id="home">
-        <h1><strong>RAAHUL S G</strong></h1>
-        <p>Entrepreneur | Innovator | Leader</p>
-        <a href="https://www.instagram.com/_raahul_sg/" class="btn" target="_blank">Instagram</a>
-        <a href="https://www.linkedin.com/in/raahulsg3/" class="btn" target="_blank">LinkedIn</a>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero visible" id="home">
+    <div class="hero-content">
+      <h1>RAAHUL S G</h1>
+      <p>HELP EACH OTHER TO GROW TOGETHER</p>
+      <a href="#connect" class="btn">CONNECT WITH ME</a>
+    </div>
+  </section>
 
-    <section class="about" id="about">
-        <h2>About Me</h2>
-        <p>I am passionate about entrepreneurship, technology, and leadership. I strive to create innovative solutions that make an impact. With a strong vision and dedication, I am on a mission to build the future.</p>
-    </section>
+  <!-- About Section -->
+  <section class="visible" id="about">
+    <h2>ABOUT ME</h2>
+    <div class="about">
+      <div class="about-container">
+        <div class="objective">
+          <h3>OBJECTIVE</h3>
+          <p>
+            ASPIRING AI PROFESSIONAL WITH A ROBUST FOUNDATION IN ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING, COUPLED WITH PRACTICAL EXPERIENCE IN GAME DEVELOPMENT AND SOFTWARE ENGINEERING. PROVEN ABILITY TO TRANSITION FROM A COMMERCE BACKGROUND INTO THE TECHNICAL FIELD, WITH STRONG PYTHON PROGRAMMING SKILLS AND A PASSION FOR INTEGRATING TECHNOLOGY WITH BUSINESS INSIGHTS.
+          </p>
+        </div>
+        <div class="education">
+          <h3>EDUCATION</h3>
+          <ul>
+            <li>BACHELOR OF SCIENCE IN ARTIFICIAL INTELLIGENCE & MACHINE LEARNING (IN PROGRESS) – SRI KRISHNA ARTS AND SCIENCE COLLEGE, COIMBATORE</li>
+            <li>COMPLETED 12TH STANDARD WITH A FOCUS ON COMMERCE – HOLY TRINITY SCHOOL</li>
+          </ul>
+        </div>
+      </div>
+      <div class="about-container">
+        <div class="skills">
+          <h3>TECHNICAL SKILLS</h3>
+          <ul>
+            <li>PROGRAMMING LANGUAGES: PYTHON</li>
+            <li>SOFTWARE & TOOLS: SELENIUM WEBDRIVER, GUI DEVELOPMENT, AUTOMATION TESTING</li>
+            <li>KEY CONCEPTS: MACHINE LEARNING, AI ALGORITHM DESIGN, EXCEPTION HANDLING, ITERATIVE PROGRAMMING</li>
+          </ul>
+        </div>
+        <div class="experience">
+          <h3>PROJECT EXPERIENCE</h3>
+          <ul>
+            <li><strong>SKYCATCHER—GAME DEVELOPMENT PROJECT</strong>: DESIGNED AND DEVELOPED A GAME USING PYTHON WITH CORE PROGRAMMING CONSTRUCTS, A USER-FRIENDLY GUI, AND ROBUST EXCEPTION HANDLING.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="about-container">
+        <div class="achievements">
+          <h3>ACHIEVEMENTS & STRENGTHS</h3>
+          <ul>
+            <li>SUCCESSFULLY TRANSITIONED FROM A COMMERCE BACKGROUND TO A TECHNICAL FIELD, INTEGRATING BUSINESS INSIGHTS WITH AI EXPERTISE.</li>
+            <li>DEVELOPED PRACTICAL KNOWLEDGE OF AI AND MACHINE LEARNING THROUGH HANDS-ON PROJECTS AND COURSEWORK.</li>
+            <li>PROVEN ADAPTABILITY AND EAGERNESS TO LEARN—BUILDING A STRONG FOUNDATION FOR FUTURE LEADERSHIP IN TECH-DRIVEN BUSINESS ENVIRONMENTS.</li>
+          </ul>
+        </div>
+        <div class="interests">
+          <h3>INTERESTS</h3>
+          <ul>
+            <li>ARTIFICIAL INTELLIGENCE & MACHINE LEARNING</li>
+            <li>GAME DEVELOPMENT & SOFTWARE INNOVATION</li>
+            <li>INTEGRATING TECHNOLOGY WITH BUSINESS STRATEGY</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="achievements" id="achievements">
-        <h2>Achievements</h2>
-        <p>- Successfully led multiple business initiatives.<br>
-           - Developed AI-driven business strategies.<br>
-           - Consistently recognized for leadership skills and strategic thinking.<br>
-           - Speaker at various tech and entrepreneurship events.
-        </p>
-    </section>
+  <!-- Project Section -->
+  <section class="visible" id="project">
+    <h2>PROJECT</h2>
+    <div class="project">
+      <p>
+        <strong>AI-POWERED MENTAL HEALTH CRISIS DETECTION PLATFORM</strong><br><br>
+        <strong>PROJECT OVERVIEW</strong><br>
+        OUR PROJECT LEVERAGES AI AND BEHAVIOURAL ANALYTICS TO DETECT EARLY SIGNS OF MENTAL DISTRESS FROM SOCIAL MEDIA POSTS, TEXT MESSAGES, AND WEARABLE DATA. BY USING NLP, SENTIMENT ANALYSIS, AND PATTERN RECOGNITION, OUR SYSTEM PROVIDES REAL-TIME INTERVENTION, ENSURING PROACTIVE MENTAL HEALTH SUPPORT.<br><br>
+        <strong>KEY FEATURES & INNOVATIONS</strong><br>
+        ✔ AI-DRIVEN MENTAL HEALTH MONITORING — USES NLP AND SENTIMENT ANALYSIS TO DETECT DISTRESS SIGNALS.<br>
+        ✔ REAL-TIME ALERTS & CRISIS PREVENTION — NOTIFIES TRUSTED CONTACTS AND CONNECTS USERS WITH MENTAL HEALTH PROFESSIONALS.<br>
+        ✔ EDGE COMPUTING FOR PRIVACY — ENSURES SECURE DATA PROCESSING WHILE MAINTAINING USER CONFIDENTIALITY.<br>
+        ✔ MULTI-MODAL BEHAVIOURAL ANALYSIS — INTEGRATES DATA FROM SOCIAL MEDIA, WEARABLE DEVICES, AND MESSAGES FOR A HOLISTIC VIEW.<br>
+        ✔ AI-POWERED SELF-HELP TOOLS — OFFERS AUTOMATED COPING STRATEGIES, MOOD TRACKING, AND MENTAL WELLNESS INSIGHTS.<br><br>
+        <strong>BUSINESS & REAL-WORLD IMPACT</strong><br>
+        ✅ CORPORATE & EDUCATIONAL INSTITUTIONS — HELPS HR AND UNIVERSITIES MONITOR EMPLOYEE/STUDENT WELL-BEING.<br>
+        ✅ MENTAL HEALTH PROFESSIONALS — SUPPORTS PSYCHOLOGISTS, THERAPISTS, AND COUNSELLORS WITH AI-DRIVEN INSIGHTS.<br>
+        ✅ CONSUMER MARKET — INDIVIDUALS CAN USE THE PLATFORM FOR PERSONALISED MENTAL HEALTH SUPPORT.<br><br>
+        <strong>FUTURE SCOPE & SCALABILITY</strong><br>
+        📌 INTEGRATION WITH WEARABLE DEVICES — EXPANDING COMPATIBILITY WITH SMARTWATCHES AND FITNESS TRACKERS.<br>
+        📌 AI CHATBOT FOR THERAPY SUPPORT — ENHANCING SELF-HELP FEATURES WITH AI-DRIVEN CONVERSATIONAL THERAPY.<br>
+        📌 PARTNERSHIPS WITH HEALTHCARE PROVIDERS — COLLABORATING WITH HOSPITALS, CLINICS, AND NGOS FOR WIDER ADOPTION.
+      </p>
+    </div>
+  </section>
 
-    <section class="goals" id="goals">
-        <h2>My Goals</h2>
-        <p>- Establish a leading tech-driven business.<br>
-           - Drive innovation in waste management and sustainability.<br>
-           - Empower aspiring entrepreneurs and leaders.<br>
-           - Create solutions that have a lasting global impact.
-        </p>
-    </section>
+  <!-- Certifications Section -->
+  <section class="visible" id="certifications">
+    <h2>CERTIFICATIONS & ACHIEVEMENTS</h2>
+    <div class="certs">
+      <a href="https://www.linkedin.com/in/raahulsg3/details/certifications/" target="_blank" class="cert-card">
+        <h3>LINKEDIN CERTIFICATIONS</h3>
+        <p>View my certifications.</p>
+      </a>
+      <a href="https://developers.google.com/profile/badges/community/solution-challenge/2025/participant" target="_blank" class="cert-card">
+        <h3>COMMUNITY CHALLENGE 2025</h3>
+        <p>Google Developers</p>
+      </a>
+      <a href="https://developers.google.com/profile/badges/profile/created-profile" target="_blank" class="cert-card">
+        <h3>GOOGLE DEVELOPER PROFILE</h3>
+        <p>Google achievements.</p>
+      </a>
+      <div class="cert-card">
+        <h3>EXPERT CODER</h3>
+        <p>Exceptional coding skills.</p>
+      </div>
+      <div class="cert-card">
+        <h3>INNOVATIVE LEADER</h3>
+        <p>Visionary leadership.</p>
+      </div>
+      <div class="cert-card">
+        <h3>AI ENTHUSIAST</h3>
+        <p>Pushing AI boundaries.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="contact" id="contact">
-        <h2>Contact Me</h2>
-        <p>Let's connect and build the future together! Reach out to me via:</p>
-        <p><a href="mailto:raahulsg3@gmail.com">raahulsg3@gmail.com</a></p>
-        <p><a href="https://www.instagram.com/_raahul_sg/" target="_blank">Instagram</a></p>
-        <p><a href="https://www.linkedin.com/in/raahulsg3/" target="_blank">LinkedIn</a></p>
-    </section>
+  <!-- Connect Section -->
+  <section class="visible" id="connect">
+    <h2>CONNECT WITH ME</h2>
+    <div class="connect">
+      <a href="mailto:raahulsg3@gmail.com" target="_blank">
+        <i class="fas fa-envelope"></i>
+        <span>EMAIL</span>
+      </a>
+      <a href="https://www.instagram.com/_raahul_sg/" target="_blank">
+        <i class="fab fa-instagram"></i>
+        <span>INSTAGRAM</span>
+      </a>
+      <a href="https://www.linkedin.com/in/raahulsg3/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        <span>LINKEDIN</span>
+      </a>
+      <a href="https://github.com/raahul3" target="_blank">
+        <i class="fab fa-github"></i>
+        <span>GITHUB</span>
+      </a>
+      <a href="https://g.dev/raahulsg_123" target="_blank">
+        <i class="fab fa-google"></i>
+        <span>GOOGLE DEV</span>
+      </a>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 RAAHUL S G. All Rights Reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 RAAHUL S G. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for smooth slide-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('section, .cert-card, .connect a, .about > div').forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
